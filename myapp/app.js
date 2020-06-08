@@ -9,7 +9,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var soCool = require('./routes/cool');
-
+var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 var app = express();
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/catalog', catalogRouter);  // Add catalog routes to middleware chain.
 app.use('/users/cool', soCool);
 
 // catch 404 and forward to error handler
